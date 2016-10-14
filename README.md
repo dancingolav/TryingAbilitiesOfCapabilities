@@ -34,8 +34,9 @@ I. СБОРКА ТЕСТА: НАСТРОЙКА POM.XML
 1.1 ЗАВИСИМОСТИ (dependencies)
 
 Следующие описания зависимостей должны присутствовать в файле POM.XML для сборки теста. Они добавят новые или 
-перепишут зависимости используемые по умолчанию. Для справки см. в IntelliJ Idea: Maven -> Maven Effective POM
+перепишут зависимости используемые по умолчанию. Для справки см. в IntelliJ Idea: Maven -> Maven Effective POM.
 
+```xml
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
    <dependency>
         <groupId>org.testng</groupId>
@@ -44,6 +45,7 @@ I. СБОРКА ТЕСТА: НАСТРОЙКА POM.XML
         <scope>test</scope>
     </dependency>
 
+
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
@@ -51,24 +53,21 @@ I. СБОРКА ТЕСТА: НАСТРОЙКА POM.XML
     <version>3.0.0-beta4</version>
 </dependency>
 
-
-
 <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 <dependency>
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-lang3</artifactId>
     <version>3.4</version>
 </dependency>
-
+```
 
 1.2 ПЛАГИНЫ
 
 Следующие настройки должны присутствовать в файле POM.XML для сборки и запуска теста. Будут добавлены
- новые настройки или переписаны существующие по умолчанию. Используется JDK 1.8. 
+новые настройки или переписаны существующие по умолчанию. Используется JDK 1.8. 
 Для справки см. в IntelliJ Idea: Maven -> Maven Effective POM
 
-org.apache.maven.plugins maven-compiler-plugin 2.3.2 1.8 1.8
-
+```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-surefire-plugin</artifactId>
@@ -79,7 +78,7 @@ org.apache.maven.plugins maven-compiler-plugin 2.3.2 1.8 1.8
         </suiteXmlFiles>
     </configuration>
 </plugin>
-
+```
 II. ЗАПУСК ТЕСТА: НАСТРОЙКА TESTNG.XML
 
 2.1 ТИП БРАУЗЕРА В TESTNG.XML
@@ -95,7 +94,10 @@ II. ЗАПУСК ТЕСТА: НАСТРОЙКА TESTNG.XML
 
 Примеры также можно посмотреть в файле testng.xml
 
+```xml
+            <parameter name="browser"  value="chrome"/>
+            <parameter name="pathToDriver"  value="D:\PersonalDrivers\chromedriver.exe"/>
 
-Для Chrome: name="browser" value="chrome" name="pathToDriver" value="D:\PersonalDrivers\chromedriver.exe"
-
-Для Opera: name="browser" value="opera" name="pathToDriver" value="D:\PersonalDrivers\operadriver.exe"
+            <parameter name="browser"  value="opera"/>
+            <parameter name="pathToDriver"  value="D:\PersonalDrivers\operadriver.exe"/>
+```
